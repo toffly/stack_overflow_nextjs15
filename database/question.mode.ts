@@ -4,10 +4,10 @@ interface IQuestion {
   title: string;
   content: string;
   tags: Types.ObjectId[];
-  views?: number;
-  answers?: number;
-  upvotes?: number;
-  downvotes?: number;
+  views: number;
+  answers: number;
+  upvotes: number;
+  downvotes: number;
   author: Types.ObjectId;
 }
 
