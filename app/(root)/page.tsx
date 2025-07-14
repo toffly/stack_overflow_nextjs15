@@ -4,8 +4,7 @@ import ROUTES from "@/constants/routes";
 import Link from "next/link";
 import HomeFilter from "../../components/filters/HomeFilter";
 import QuestionCard from "@/components/cards/QuestionCard";
-import { ValidationError } from "@/lib/http-error";
-import handleError from "@/lib/handlers/error";
+import { auth } from "@/auth";
 
 const questions = [
   {
@@ -48,24 +47,13 @@ const questions = [
   },
 ];
 
-const test = async () => {
-  try {
-    throw new ValidationError({
-      title: ["Requested"],
-      tags: ["'JavaScript' is not a valid tag"],
-    });
-  } catch (error) {
-    return handleError(error);
-  }
-};
-
 interface SearchParams {
   searchParams: Promise<{ [key: string]: string }>;
 }
 
 const Home = async ({ searchParams }: SearchParams) => {
-  const result = await test();
-  console.log(result);
+  const session = await auth();
+  console.log("Session: ", session);
 
   const { query = "", filter = "" } = await searchParams;
 
