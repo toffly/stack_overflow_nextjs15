@@ -33,7 +33,7 @@ type ActionResponse<T = null> = {
 };
 
 type SuccessResponse<T = null> = ActionResponse<T> & { success: true };
-type SuccessResponse = ActionResponse<undefined> & { success: false };
+type ErrorResponse = ActionResponse<undefined> & { success: false };
 
 type APIErrorResponse = NextResponse<ErrorResponse>;
 
