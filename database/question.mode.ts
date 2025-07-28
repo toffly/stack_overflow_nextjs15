@@ -26,7 +26,7 @@ const QuestionSchema = new Schema<IQuestion>(
   { timestamps: true }
 );
 
-const question =
+const Question =
   models?.Question || model<IQuestion>("Question", QuestionSchema);
 
-export default question;
+export default Question;
