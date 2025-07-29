@@ -9,9 +9,10 @@ interface Author {
   image: string;
 }
 
-interface Question {
+interface QuestionType {
   _id: string;
   title: string;
+  content: string;
   tags: Tag[];
   author: Author;
   createdAt: Date;
